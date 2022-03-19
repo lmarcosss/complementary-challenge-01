@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { Button } from "./Button";
 
 interface GenreResponseProps {
@@ -14,9 +15,9 @@ interface Props {
 
 export function SideBar({ genres, setSelectedGenreId, selectedGenreId }: Props) {
   
-  function handleClickButton(id: number) {
+  const handleClickButton = useCallback((id: number) => {
     setSelectedGenreId(id);
-  }
+  }, []);
 
   return (
     <nav className="sidebar">
